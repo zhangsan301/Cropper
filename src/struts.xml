@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <!--设置开发者模式-->
+    <constant name="struts.devMode" value="true"></constant>
+    <!--开启动态方法调用-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <package name="cropper" namespace="/" extends="struts-default">
+       <!--开启全部的动态方法调用-->
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+        <action name="ImageAction_*" class="com.sikiedu.web.ImageAction" method="{1}">
+            <result name="success">/success.jsp</result>
+
+        </action>
+    </package>
+
+</struts>
